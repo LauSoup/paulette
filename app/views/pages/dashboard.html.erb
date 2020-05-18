@@ -1,0 +1,10 @@
+<h1>Welcome <%= @user.name %> !</h1>
+
+<h2>Please see below your requests:</h2>
+<% @user.requests.each do |request| %>
+  <li> 
+    Id: <%= request.id %>
+    Hen: <%= request.hen[:name] %> by <%= request.hen.user[:name] %>
+    Duration: <%= request.duration %>
+  </li>
+<% end %>

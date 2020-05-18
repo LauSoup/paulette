@@ -19,10 +19,15 @@ puts 'Creating 20 fake  users...'
   p address
   description = Faker::Lorem.paragraph(sentence_count: 2)
   p description
-  # user = User.new(
-  #   name: full_name,
-  # )
-  # user.save!
+  password = 'poulette'
+  user = User.new(
+    name: full_name,
+    email: email,
+    address: address,
+    description: description,
+    password: password
+  )
+  user.save!
   puts 'User added.'
 end
 puts 'All 20 users added.'

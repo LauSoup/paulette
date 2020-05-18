@@ -5,3 +5,29 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts 'Creating 20 fake  users...'
+20.times do
+  full_name = Faker::Name.name
+  p full_name
+  surname = full_name.split[0].downcase
+  last_name = full_name.split[1].downcase
+  email = "#{surname}.#{last_name}@loremipsum.com"
+  p email
+  address = "Le Mans"
+  p address
+  description = Faker::Lorem.paragraph(sentence_count: 2)
+  p description
+  password = 'poulette'
+  user = User.new(
+    name: full_name,
+    email: email,
+    address: address,
+    description: description,
+    password: password
+  )
+  user.save!
+  puts 'User added.'
+end
+puts 'All 20 users added.'

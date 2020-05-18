@@ -1,0 +1,7 @@
+<h1>Add a hen 🐔</h1>
+
+
+<%= simple_form_for [ @hen, @request ] do |f| %>
+  <%= f.input :duration %>
+  <%= f.submit "Validate", class: "btn btn-primary" %>
+<% end %>

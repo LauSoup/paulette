@@ -10,9 +10,8 @@ class RequestsController < ApplicationController
       @request = Request.new(requests_params)
       @hen = Hen.find(params[:hen_id])
       @request.hen = @hen
-      @request.save
       if @request.save
-        redirect_to hens_path(@hen)
+        redirect_to dashboard_path
       else
         render :new
       end

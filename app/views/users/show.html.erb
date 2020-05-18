@@ -1,0 +1,12 @@
+<h1><%= @user.name %></h1>
+
+<% @user.hens.each do |hen| %>
+  <li> 
+    Name: <%= hen.name %>
+    Description: <%= hen.description %>
+    Age: <%= hen.age %>
+    Breed: <%= hen.breed %>
+    Price: <%= hen.price %>
+    Disponibility: <%= hen.disponibility %>
+  </li>
+<% end %>

@@ -3,8 +3,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-    # @user = current_user
-    @user = User.find(1)
+    @user = current_user
   end
   
 end

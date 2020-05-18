@@ -7,6 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+full_name ="poulette"
+email = "poulette@poulette.com"
+address = "poulette"
+password = "poulette"
+description = "poulette"
+user = User.new(
+  name: full_name,
+  email: email,
+  address: address,
+  description: description,
+  password: password
+)
+user.save!
+"poulette created."
+
 puts 'Creating 20 fake  users...'
 20.times do
   full_name = Faker::Name.name

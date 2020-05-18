@@ -1,0 +1,2 @@
+class HensController < ApplicationController
+end

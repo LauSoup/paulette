@@ -13,3 +13,10 @@
   width: 40px;
 }
 
+.navbar-expand-sm .navbar-nav .nav-link {
+  padding-right: 0.9rem;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: $hen-orange;
+}

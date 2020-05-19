@@ -7,6 +7,15 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin: 20px 0px;
+  border-radius: 4px;
+  position: relative;
+  h6 {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 12px;
+  }
 }
 
 .card-product img {
@@ -31,6 +40,7 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  position: relative;
 }
 
 // Edgar's cards

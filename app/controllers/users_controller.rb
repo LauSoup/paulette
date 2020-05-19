@@ -7,6 +7,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # For now @user.hens but should become @user.hens.select{|hen| hen.availability == true}
+    @hens = @user.hens
+
   end
 
 end

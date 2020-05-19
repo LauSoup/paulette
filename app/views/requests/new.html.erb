@@ -1,8 +1,14 @@
 <h1>Book my 🐔</h1>
 
+<% if @hen.disponibility == false %>
+  <p>This hen is not available at the moment, please choose another one</p>
+  <%= link_to "Dashboard", dashboard_path %>
+ <% else %>
 <%= simple_form_for [ @hen, @request ] do |f| %>
-  <%= f.input :duration %>
+  <%= f.input :beginning, label: 'From' %>
+  <%= f.input :ending, label: 'To' %>
   <%= f.submit "Validate", class: "btn btn-primary" %>
 <% end %>
 
 <%= link_to "Dashboard", dashboard_path %>
+ <% end %>

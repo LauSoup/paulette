@@ -11,13 +11,13 @@ class RequestsController < ApplicationController
     @request.user = current_user
     @hen = Hen.find(params[:hen_id])
     @request.hen = @hen
-    @request.save
-    authorize @request
-    if @request.save
-      redirect_to dashboard_path
-    else
-      render :new
-    end
+      @request.save
+      authorize @request
+      if @request.save
+        redirect_to dashboard_path
+      else
+        render :new
+      end
   end
 
   def edit
@@ -48,6 +48,6 @@ class RequestsController < ApplicationController
     private
 
     def requests_params
-      params.require(:request).permit(:duration, :user_id, :hen_id)
+      params.require(:request).permit(:beginning, :ending, :user_id, :hen_id)
     end
 end

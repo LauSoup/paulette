@@ -1,11 +1,20 @@
 // Specific CSS for your home-page
 .home {
-  height: 100vh;
+  height: 82vh;
   width: 100%;
-  background-size: cover;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe277;
+}
 
-  h1 {
+.home h1 {
     color: white;
     text-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+    font-size: 48px;
   }
+
+.image-big {
+
 }

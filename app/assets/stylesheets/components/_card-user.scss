@@ -1,3 +1,13 @@
+// Noéline's cards.
+.container {
+  text-align: center;
+  h1 {
+    font-size: 48px;
+    font-weight: bold;
+    padding: 30px;
+  }
+}
+
 .card-product {
   overflow: hidden;
   height: 200px;
@@ -5,6 +15,15 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  margin: 10px 0px;
+  border-radius: 4px;
+  position: relative;
+  h6 {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 16px;
+  }
 }
 
 .card-product img {
@@ -29,4 +48,62 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  position: relative;
+  text-align: left;
 }
+
+// Edgar's cards
+
+.cards-container {
+  padding: 0px 70px;
+}
+
+.cards-container{
+  position:relative;
+  top:-50px;
+}
+.hen-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-top: 20px;
+}
+
+.hen-card {
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.hen-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.hen-card h5, p {
+  color:black;
+}
+
+#farmer-intro-card {
+  margin-bottom: 40px;
+}
+
+
+// Dynamic display of hens' cards:
+
+@media (max-width: 1200px) {
+  .hen-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .hen-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)

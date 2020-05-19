@@ -21,11 +21,13 @@ class RequestsController < ApplicationController
   def edit
     @request = Request.find(params[:id])
     @hen = @request.hen
+    authorize @request
   end
 
   def update
     @request = Request.find(params[:id])
     @hen = @request.hen
+    authorize @request
     if @request.update(requests_params)
       redirect_to dashboard_path
     else
@@ -37,6 +39,7 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @hen = @request.hen
     @request.destroy
+    authorize @request
     redirect_to dashboard_path
   end
 

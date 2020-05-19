@@ -1,7 +1,18 @@
+<!-- Banner -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/375510/pexels-photo-375510.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);">
+  <div class="container">
+    <h1><%= @user.name %></h1>
+    <p>A true hen lover!</p>
+  </div>
+</div>
+
+
 <h1><%= @user.name %></h1>
 
+
+
 <% @user.hens.each do |hen| %>
-  <li> 
+  <li>
     Name: <%= hen.name %>
     Description: <%= hen.description %>
     Age: <%= hen.age %>

@@ -57,12 +57,14 @@ puts 'Creating 20 fake  users...'
     p description
     breed_hen = ['ISA Brown', 'Plymouth Rock', 'Barnevelder', 'Australorp', 'Naked Neck', 'Orpington', 'Silkie', 'New Hampshire Red'].sample
     p breed_hen
+    availability_array = [true, false]
     hen = Hen.new(
       breed: breed_hen,
       description: description,
       price: price_hen,
       name: surname,
-      age: age_hen
+      age: age_hen,
+      disponibility: availability_array.sample
       )
     hen.user_id = user.id
     hen.save!

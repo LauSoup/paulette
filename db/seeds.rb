@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'faker'
+Hen.destroy_all
+User.destroy_all
 
 full_name ="poulette"
 email = "poulette@poulette.com"
@@ -46,3 +47,32 @@ puts 'Creating 20 fake  users...'
   puts 'User added.'
 end
 puts 'All 20 users added.'
+
+puts 'Creating 5 fake hens per user...'
+users_created = User.all
+users_created.each do |user|
+  5.times do
+    surname = Faker::Creature::Cat.name
+    p surname
+    age_hen = (1..8).to_a.sample
+    p age_hen
+    price_hen = (8..15).to_a.sample
+    p price_hen
+    description = Faker::Lorem.paragraph(sentence_count: 2)
+    p description
+    breed_hen = ['ISA Brown', 'Plymouth Rock', 'Barnevelder', 'Australorp', 'Naked Neck', 'Orpington', 'Silkie', 'New Hampshire Red'].sample
+    p breed_hen
+    hen = Hen.new(
+      breed: breed_hen,
+      description: description,
+      price: price_hen,
+      name: surname,
+      age: age_hen
+      )
+    hen.user_id = user.id
+    hen.save!
+  puts 'Hen added.'
+  end
+puts 'All 5 hens added.'
+end
+

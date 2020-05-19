@@ -21,31 +21,28 @@ class RequestsController < ApplicationController
   def edit
     @request = Request.find(params[:id])
     @hen = @request.hen
-    # @hen = Hen.find(params[:hen_id])
-    # @request = @hen.request
   end
 
   def update
-    # @hen = Hen.find(params[:hen_id])
-    # @request = @hen.request
     @request = Request.find(params[:id])
     @hen = @request.hen
-    if @request.save
+    if @request.update(requests_params)
       redirect_to dashboard_path
     else
-      render 'edit'
+      render :edit
     end
   end
 
-  # def destroy
-  #   @request = Request.find(params[:id])
-  #   @request.destroy
-  #   redirect_to dashboard_path
-  # end
+  def destroy
+    @request = Request.find(params[:id])
+    @hen = @request.hen
+    @request.destroy
+    redirect_to dashboard_path
+  end
 
     private
 
     def requests_params
-      params.require(:request).permit(:duration)
+      params.require(:request).permit(:duration, :user_id, :hen_id)
     end
 end

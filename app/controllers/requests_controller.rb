@@ -3,6 +3,7 @@ class RequestsController < ApplicationController
   def new
     @hen = Hen.find(params[:hen_id])
     @request = Request.new
+    authorize @request
   end
 
   def create
@@ -11,6 +12,7 @@ class RequestsController < ApplicationController
     @hen = Hen.find(params[:hen_id])
     @request.hen = @hen
     @request.save
+    authorize @request
     if @request.save
       redirect_to dashboard_path
     else

@@ -30,7 +30,8 @@
       <div class="hen-cards">
         <% @hens.each do |hen| %>
         <!-- Hen card. -->
-        <div class="hen-card">
+        <% hen.disponibility ? availability_filter = "" : availability_filter = "grey-filter"%>
+        <div class="hen-card <%= availability_filter %>">
 
           <%= image_tag("australorp.jpeg") %>
           <div class="card-body">

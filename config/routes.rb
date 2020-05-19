@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
   resources :hens, only: [] do
-    resources :requests, only:[:new, :create]
+    resources :requests, only:[:new, :create, :edit]
   end
 
   get 'dashboard', to:'pages#dashboard'

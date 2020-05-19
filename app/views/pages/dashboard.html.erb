@@ -1,10 +1,11 @@
 <h1>Welcome <%= @user.name %> !</h1>
-
 <h2>Please see below your requests:</h2>
 <% @user.requests.each do |request| %>
-  <li> 
+  <li>
     Id: <%= request.id %>
     Hen: <%= request.hen[:name] %> by <%= request.hen.user[:name] %>
     Duration: <%= request.duration %>
+    <%= link_to "Edit", edit_hen_request_path(request.hen.id, request.id)%>
+    <%= link_to "Delete" %>
   </li>
 <% end %>

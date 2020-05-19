@@ -45,12 +45,7 @@ puts 'Creating 20 fake  users...'
   )
   user.save!
   puts 'User added.'
-end
-puts 'All 20 users added.'
-
-puts 'Creating 5 fake hens per user...'
-users_created = User.all
-users_created.each do |user|
+  puts 'Creating 5 fake hens per user...'
   5.times do
     surname = Faker::Creature::Cat.name
     p surname
@@ -75,4 +70,4 @@ users_created.each do |user|
   end
 puts 'All 5 hens added.'
 end
-
+puts 'All 20 users added.'

@@ -8,6 +8,7 @@ class RequestsController < ApplicationController
     def create
       @request = Request.new(requests_params)
       @request.user = current_user
+      authorize @request
       @hen = Hen.find(params[:hen_id])
       @request.hen = @hen
       @request.save

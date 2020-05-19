@@ -5,9 +5,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
   resources :hens, only: [] do
-    resources :requests, only:[:new, :create]
+    resources :requests, only: [:new, :create, :edit, :update]
   end
-
+  resources :requests, only: [:destroy]
   get 'dashboard', to:'pages#dashboard'
 
 end

@@ -1,7 +1,8 @@
-<h1>Add a hen 🐔</h1>
+<h1>Book my 🐔</h1>
 
-
-<%= simple_form_for [ @hen, @request ] do |f| %>
+  <%= simple_form_for [ @hen, @request ] do |f| %>
   <%= f.input :duration %>
   <%= f.submit "Validate", class: "btn btn-primary" %>
 <% end %>
+
+<%= link_to "Dashboard", dashboard_path %>

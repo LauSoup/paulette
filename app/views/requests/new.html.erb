@@ -1,7 +1,7 @@
-<h1>Book my 🐔</h1>
+<h1>Please select the time period you wish to have <%= @hen.name %> 🐔 🥚</h1>
 
 <% if @hen.disponibility == false %>
-  <p>This hen is not available at the moment, please choose another one</p>
+  <p>Unfortunately, this hen is not available at the moment, please choose another one</p>
   <%= link_to "Dashboard", dashboard_path %>
  <% else %>
 <%= simple_form_for [ @hen, @request ] do |f| %>

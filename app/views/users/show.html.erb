@@ -28,20 +28,38 @@
       <h3 class="card-title">His hens!</h3>
 
       <div class="hen-cards">
-        <% @hens.each do |hen| %>
-        <!-- Hen card. -->
-        <% hen.disponibility ? availability_filter = "" : availability_filter = "grey-filter"%>
-        <div class="hen-card <%= availability_filter %>">
-
-          <%= image_tag("australorp.jpeg") %>
-          <div class="card-body">
-            <h5 class="card-title"><%= hen.name %></h5>
-            <p class="card-text"><%= hen.breed %></p>
-            <p class="card-text">Available: <%= hen.disponibility %></p>
-            <p class="card-text">Price: <%= hen.price %>€.</p>
-            <p class="card-text"><%= hen.name %> is <%= hen.age %> years old!</p>
+        <% if policy(Request).create? %>
+          <% @hens.each do |hen| %>
+          <!-- Hen card. -->
+          <% hen.disponibility ? availability_filter = "" : availability_filter = "grey-filter"%>
+            <%= link_to new_hen_request_url(hen) do%>
+              <div class="hen-card <%= availability_filter %>">
+                <%= image_tag("australorp.jpeg") %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= hen.name %></h5>
+                  <p class="card-text"><%= hen.breed %></p>
+                  <p class="card-text">Available: <%= hen.disponibility %></p>
+                  <p class="card-text">Price: <%= hen.price %>€.</p>
+                  <p class="card-text"><%= hen.name %> is <%= hen.age %> years old!</p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <% @hens.each do |hen| %>
+          <!-- Hen card. -->
+          <% hen.disponibility ? availability_filter = "" : availability_filter = "grey-filter"%>
+          <div class="hen-card <%= availability_filter %>">
+            <%= image_tag("australorp.jpeg") %>
+            <div class="card-body">
+              <h5 class="card-title"><%= hen.name %></h5>
+              <p class="card-text"><%= hen.breed %></p>
+              <p class="card-text">Available: <%= hen.disponibility %></p>
+              <p class="card-text">Price: <%= hen.price %>€.</p>
+              <p class="card-text"><%= hen.name %> is <%= hen.age %> years old!</p>
+            </div>
           </div>
-        </div>
+          <% end %>
         <% end %>
       </div>
     </div>

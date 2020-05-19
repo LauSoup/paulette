@@ -5,7 +5,11 @@
     Id: <%= request.id %>
     Hen: <%= request.hen[:name] %> by <%= request.hen.user[:name] %>
     Duration: <%= request.duration %>
-    <%= link_to "Edit", edit_hen_request_path(request.hen.id, request.id)%>
-    <%= link_to "Delete", request_path(request.id), method: :delete %>
+    <%if policy(request).edit? %>
+      <%= link_to "Edit", edit_hen_request_path(request.hen.id, request.id)%>
+    <% end %>
+    <%if policy(request).destroy? %>
+      <%= link_to "Delete", request_path(request.id), method: :delete %>
+    <% end %>
   </li>
 <% end %>

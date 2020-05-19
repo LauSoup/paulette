@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all
+    users_initial = User.all
+    @users = users_initial.reject { |user| user.hens.empty? }
   end
 
   def show

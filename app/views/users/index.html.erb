@@ -1,12 +1,18 @@
 <div class="container text-align-center">
-  <% @users.each do |user| %>
-    <div class="card-product">
-      <img src="https://poulespondeuses.com/wp-content/uploads/2018/02/Tonio-Poule-1080x810.jpg" />
-      <div class="card-product-infos">
-        <h2><%= user.name %></h2>
-        <p><%= user.address %></p>
-        <p><%= user.description %></p>
+  <h1>Find your hen!</h1>
+  <div class="row d-flex justify-content-center align-items-center">
+    <% @users.each do |user| %>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <div class="card-product">
+        <h6><%= user.hens.where(disponibility: true).length %> 🐓 available!</h6>
+        <img src="https://poulespondeuses.com/wp-content/uploads/2018/02/Tonio-Poule-1080x810.jpg" />
+        <div class="card-product-infos">
+          <h2><%= user.name %></h2>
+          <p><%= user.address %></p>
+          <p><%= user.description %></p>
+        </div>
       </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

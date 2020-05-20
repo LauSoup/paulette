@@ -32,7 +32,6 @@
           <% @hens.each do |hen| %>
           <!-- Hen card. -->
           <% hen.disponibility ? availability_filter = "" : availability_filter = "grey-filter"%>
-            <%= link_to new_hen_request_url(hen) do%>
               <div class="hen-card <%= availability_filter %>">
                 <%= image_tag("australorp.jpeg") %>
                 <div class="card-body">
@@ -40,12 +39,13 @@
                   <p class="card-text"><%= hen.breed %></p>
                   <p class="card-text">Price: <%= hen.price %>€.</p>
                   <p class="card-text"><%= hen.name %> is <%= hen.age.round %> years old!</p>
+                  <%= link_to new_hen_request_url(hen) do %>
                   <div class="text-right">
-                    <%= link_to "Book now #{hen.name}", new_hen_request_url(hen), class: "btn btn-flat" %>
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i> Book <%= hen.name %>
                   </div>
+                  <% end %>
                 </div>
               </div>
-            <% end %>
           <% end %>
         <% else %>
           <% @hens.each do |hen| %>

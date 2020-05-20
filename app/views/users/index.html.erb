@@ -2,7 +2,7 @@
   <h1>Find your hen!</h1>
   <div class="row d-flex justify-content-center align-items-center">
     <% @users.each do |user| %>
-    <div class="col-sm-12 col-md-6 col-lg-6">
+    <div class="col-sm-12 col-md-6 col-lg-4">
       <%= link_to user_path(user) do%>
       <div class="card-product">
         <h6><%= user.hens.where(disponibility: true).length %> 🐓 available!</h6>

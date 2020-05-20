@@ -5,6 +5,8 @@
     font-size: 48px;
     font-weight: bold;
     padding: 30px;
+    color: black;
+    opacity: 0.6;
   }
 }
 
@@ -16,7 +18,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: inline-grid;
   align-items: center;
-  margin: 10px 0px;
+  margin: 20px 0px;
   border-radius: 4px;
   position: relative;
   h6 {

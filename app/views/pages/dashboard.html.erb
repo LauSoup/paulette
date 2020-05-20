@@ -1,21 +1,25 @@
-<h1>Welcome <%= @user.name.capitalize %> !</h1>
-<h2>Please see below your requests:</h2>
+<div class="dashboard text-align-center">
+  <div class="container">
+    <h1>Welcome <%= @user.name.capitalize %> !</h1>
+    <h2>Please see below your requests:</h2>
 
-<div class="card-product">
-  <img src="https://source.unsplash.com/featured/?chicken" />
-  <div class="card-product-infos">
     <% @user.requests.each do |request| %>
-      <li>
-        You've booked: <strong><%= request.hen[:name] %></strong> raised by <strong><%= request.hen.user[:name] %></strong> from <%= request.beginning %> to <%= request.ending %>
-      </li>
-        <%if policy(request).edit? %>
-          <%= link_to edit_hen_request_path(request.hen.id, request.id) do %>
-          <i class="fa fa-arrow-right" aria-hidden="true"></i> Edit
-        <% end %>
-        <%= link_to request_path(request.id), method: :delete, data: {confirm: 'Are you sure?'} do %>
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        <% end %>
-      <% end %>
+      <div class="card-product">
+        <img src="https://source.unsplash.com/featured/?chicken" />
+        <div class="card-product-infos">
+          <p>Hen booked: <strong><%= request.hen[:name] %></strong></p>
+          <p>Owner name: <strong><%= request.hen.user[:name] %></strong></p>
+          <p>Period: <%= request.beginning %> to <%= request.ending %></p>
+          <%if policy(request).edit? %>
+            <%= link_to edit_hen_request_path(request.hen.id, request.id) do %>
+              <i class="far fa-edit" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to request_path(request.id), method: :delete, data: {confirm: 'Are you sure?'} do %>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

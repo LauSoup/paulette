@@ -1,0 +1,21 @@
+.dashboard {
+  min-height: calc(100vh - 70px - 60px);
+  width: 100%;
+  text-align: center;
+  background-color: #58b4ae;
+  padding: 0;
+  margin: 0;
+}
+
+.dashboard h1, h2 {
+  color: white;
+  text-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.dashboard h2 {
+  font-size: 24px;
+}
+
+.dashboard h1 {
+  font-size: 40px;
+}

@@ -31,9 +31,9 @@ puts 'Creating 20 fake  users...'
   last_name = full_name.split[1].downcase
   email = "#{surname}.#{last_name}@loremipsum.com"
   p email
-  address = "Le Mans"
+  address = ["Le Mans", "Rouen", "Brest", "Blois", "Caen", "Amiens", "Reims", "Soissons", "Chaumont"].sample
   p address
-  description = Faker::Lorem.paragraph(sentence_count: 2)
+  description = ["I'm an happy owner of hens! Happy owner make happy hens!", "Account Manager during the day, and a real mother-hen the rest of the time", "Come visit us and admire our hens, you'll be delighted", "I'll be very happy to take care of your hen[s] for you!", "Nature lover, I'm raising hens since 3 years"].sample
   p description
   password = 'poulette'
   user = User.new(

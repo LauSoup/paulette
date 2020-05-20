@@ -1,0 +1,22 @@
+.btn-yellow {
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: white;
+  color: #FFE277;
+  border: 2px solid #FFE277;
+  font-weight: bold;
+  text-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+}
+.btn-yellow:hover {
+  background-color: #FFE277;
+  color: white;
+  border: 2px solid white;
+}
+.big-btn{
+  padding: 15px 25px;
+  font-size: 24px;
+}
+.small-btn{
+  padding:10px 15px;
+  font-size:20px;
+}

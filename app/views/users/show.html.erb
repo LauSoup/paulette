@@ -38,9 +38,11 @@
                 <div class="card-body">
                   <h5 class="card-title"><%= hen.name %></h5>
                   <p class="card-text"><%= hen.breed %></p>
-                  <p class="card-text">Available: <%= hen.disponibility %></p>
                   <p class="card-text">Price: <%= hen.price %>€.</p>
-                  <p class="card-text"><%= hen.name %> is <%= hen.age %> years old!</p>
+                  <p class="card-text"><%= hen.name %> is <%= hen.age.round %> years old!</p>
+                  <div class="text-right">
+                    <%= link_to "Book now #{hen.name}", new_hen_request_url(hen), class: "btn btn-flat" %>
+                  </div>
                 </div>
               </div>
             <% end %>
@@ -54,9 +56,8 @@
             <div class="card-body">
               <h5 class="card-title"><%= hen.name %></h5>
               <p class="card-text"><%= hen.breed %></p>
-              <p class="card-text">Available: <%= hen.disponibility %></p>
               <p class="card-text">Price: <%= hen.price %>€.</p>
-              <p class="card-text"><%= hen.name %> is <%= hen.age %> years old!</p>
+              <p class="card-text"><%= hen.name %> is <%= hen.age.round %> years old!</p>
             </div>
           </div>
           <% end %>

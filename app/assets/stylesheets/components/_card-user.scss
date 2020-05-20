@@ -10,8 +10,8 @@
 
 .card-product {
   overflow: hidden;
-  height: 200px;
-  width: auto;
+  height: 300px;
+  width: 300px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: inline-grid;
@@ -24,12 +24,14 @@
     top: 4px;
     right: 4px;
     font-size: 16px;
+    color: white;
+    font-weight: bold;
   }
 }
 
 .card-product img {
   height: 100%;
-  width: 200px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -37,6 +39,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: #E67E22;
 }
 
 .card-product p {

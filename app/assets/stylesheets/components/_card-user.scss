@@ -5,17 +5,20 @@
     font-size: 48px;
     font-weight: bold;
     padding: 30px;
+    color: black;
+    opacity: 0.6;
   }
 }
 
 .card-product {
   overflow: hidden;
-  height: 200px;
+  height: 300px;
+  width: 300px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
+  display: inline-grid;
   align-items: center;
-  margin: 10px 0px;
+  margin: 20px 0px;
   border-radius: 4px;
   position: relative;
   h6 {
@@ -23,12 +26,14 @@
     top: 4px;
     right: 4px;
     font-size: 16px;
+    color: white;
+    font-weight: bold;
   }
 }
 
 .card-product img {
   height: 100%;
-  width: 200px;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -36,6 +41,7 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: #E67E22;
 }
 
 .card-product p {
@@ -140,7 +146,6 @@
   text-align: center;
   width: 180px;
 }
-
 
 .hen-card .btn-flat:hover {
   background: #E67E22;

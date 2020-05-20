@@ -34,7 +34,7 @@
           <% hen.disponibility ? availability_filter = "" : availability_filter = "grey-filter"%>
             <%= link_to new_hen_request_url(hen) do%>
               <div class="hen-card <%= availability_filter %>">
-                <%= image_tag("australorp.jpeg") %>
+                <%= image_tag("australorp.png") %>
                 <div class="card-body">
                   <h5 class="card-title"><%= hen.name %></h5>
                   <p class="card-text"><%= hen.breed %></p>
@@ -50,7 +50,7 @@
           <!-- Hen card. -->
           <% hen.disponibility ? availability_filter = "" : availability_filter = "grey-filter"%>
           <div class="hen-card <%= availability_filter %>">
-            <%= image_tag("australorp.jpeg") %>
+            <%= image_tag("australorp.png") %>
             <div class="card-body">
               <h5 class="card-title"><%= hen.name %></h5>
               <p class="card-text"><%= hen.breed %></p>

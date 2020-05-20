@@ -116,7 +116,26 @@
   }
 }
 
+.hen-card .btn-flat {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #E67E22;
+  transition: background 0.3s ease;
+  text-align: center;
+  width: 180px;
+}
 
+
+.hen-card .btn-flat:hover {
+  background: #E67E22;
+  color: white;
+}
+
+
+.hen-card .text-right {
+  color: #E67E22;
+}
 // Dynamic display of hens' cards:
 
 @media (max-width: 1200px) {
@@ -130,5 +149,7 @@
     grid-template-columns: 1fr;
   }
 }
+
+
 
 // Medium devices (tablets, 768px and up)

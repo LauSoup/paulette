@@ -98,8 +98,22 @@
 // FORM CARDS
 
 .request-card {
-  background-color: cover;
-  padding: 150px 0;
+  vertical-align: center;
+  text-align:center;
+  padding: 70px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+
+  h1 {
+    color:white;
+    margin-bottom:10px;
+  }
+
+  label {
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    margin-left:3px;
+  }
 }
 
 

@@ -3,24 +3,38 @@
   background: white;
   position: sticky;
   top: 0;
+
+  h2 {
+    color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.navbar-lewagon .navbar-brand {
+  padding: 0;
+  margin: 0;
+}
+
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  border-radius: 50%;
+
 }
 
 .navbar-expand-sm .navbar-nav .nav-link {
   padding-right: 0.9rem;
+  font-weight: bold;
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-  color: $hen-orange;
+  color: $hen-yellow;
+  text-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
 }
 
 .navbar-brand:hover {
-  opacity: 0.5;
+  opacity: 0.8;
 }
+

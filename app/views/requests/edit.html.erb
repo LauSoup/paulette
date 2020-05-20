@@ -1,7 +1,9 @@
-<h1>Please enter the modification you want to do : </h1>
+<h1>🐔Please select the new period time : </h1>
+<p>Your previous location was from <%= @request.beginning %> to <%= @request.ending %></p>
 
 <%= simple_form_for [ @hen, @request ] do |f| %>
-  <%= f.input :duration %>
+  <%= f.input :beginning, label: 'From'%>
+  <%= f.input :ending, label: 'To' %>
   <%= f.submit "Validate", class: "btn btn-primary" %>
 <% end %>
 

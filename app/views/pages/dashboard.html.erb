@@ -4,7 +4,7 @@
   <li>
     Id: <%= request.id %>
     Hen: <%= request.hen[:name] %> by <%= request.hen.user[:name] %>
-    Duration: <%= request.duration %>
+    Renting from: <%= request.beginning %> to <%= request.ending %>
     <%if policy(request).edit? %>
       <%= link_to "Edit", edit_hen_request_path(request.hen.id, request.id)%>
     <% end %>

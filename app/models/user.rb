@@ -6,8 +6,8 @@ class User < ApplicationRecord
   has_many :hens
   has_many :requests
 
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :password, presence: true
+  # validates :name, presence: true
+  # validates :email, presence: true, uniqueness: true
+  # validates :password, presence: true
 
 end

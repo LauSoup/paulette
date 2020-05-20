@@ -18,3 +18,7 @@ body {
 h1, h2, h3 {
   font-family: $head-hen-font;
 }
+
+.content-wrapper {
+  min-height: calc(100vh - 70px - 60px);
+}

@@ -9,7 +9,7 @@
       <%= link_to "Edit", edit_hen_request_path(request.hen.id, request.id)%>
     <% end %>
     <%if policy(request).destroy? %>
-      <%= link_to "Delete", request_path(request.id), method: :delete %>
+      <%= link_to "Delete", request_path(request.id), method: :delete, data: {confirm: "Are you sure?"} %>
     <% end %>
   </li>
 <% end %>

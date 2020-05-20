@@ -39,10 +39,16 @@
                   <p class="card-text"><%= hen.breed %></p>
                   <p class="card-text">Price: <%= hen.price %>€.</p>
                   <p class="card-text"><%= hen.name %> is <%= hen.age.round %> years old!</p>
-                  <%= link_to new_hen_request_url(hen) do %>
-                  <div class="text-right">
-                    <i class="fa fa-arrow-right" aria-hidden="true"></i> Book <%= hen.name %>
-                  </div>
+                  <% if hen.disponibility == true %>
+                    <%= link_to new_hen_request_url(hen) do %>
+                    <div class="text-right">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>Book <%= hen.name %>
+                    </div>
+                    <% end %>
+                    <% else %>
+                    <div class="text-right">
+                      <i class="fa fa-ban" aria-hidden="true"></i> Victime de son succès
+                    </div>
                   <% end %>
                 </div>
               </div>

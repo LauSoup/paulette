@@ -1,15 +1,21 @@
-<h1>Welcome <%= @user.name %> !</h1>
+<h1>Welcome <%= @user.name.capitalize %> !</h1>
 <h2>Please see below your requests:</h2>
-<% @user.requests.each do |request| %>
-  <li>
-    Id: <%= request.id %>
-    Hen: <%= request.hen[:name] %> by <%= request.hen.user[:name] %>
-    Renting from: <%= request.beginning %> to <%= request.ending %>
-    <%if policy(request).edit? %>
-      <%= link_to "Edit", edit_hen_request_path(request.hen.id, request.id)%>
+
+<div class="card-product">
+  <img src="https://source.unsplash.com/featured/?chicken" />
+  <div class="card-product-infos">
+    <% @user.requests.each do |request| %>
+      <li>
+        You've booked: <strong><%= request.hen[:name] %></strong> raised by <strong><%= request.hen.user[:name] %></strong> from <%= request.beginning %> to <%= request.ending %>
+      </li>
+        <%if policy(request).edit? %>
+          <%= link_to edit_hen_request_path(request.hen.id, request.id) do %>
+          <i class="fa fa-arrow-right" aria-hidden="true"></i> Edit
+        <% end %>
+        <%= link_to request_path(request.id), method: :delete, data: {confirm: 'Are you sure?'} do %>
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        <% end %>
+      <% end %>
     <% end %>
-    <%if policy(request).destroy? %>
-      <%= link_to "Delete", request_path(request.id), method: :delete %>
-    <% end %>
-  </li>
-<% end %>
+  </div>
+</div>

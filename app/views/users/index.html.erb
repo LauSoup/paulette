@@ -26,8 +26,9 @@
             <% sum = total.sum %>
             <% size = total.size %>
             <% total = sum.fdiv(size) %>
-            <%= total %>
-          </div>
+              <% if total > 0 %>
+                <%= total %>
+              <% end %>
         </div>
       </div>
       <% end %>

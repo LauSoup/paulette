@@ -10,8 +10,7 @@ require("channels")
 
 import flatpickr from 'flatpickr'
 import 'flatpickr/dist/flatpickr.min.css'
-flatpickr(".datepicker", {
-});
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -36,4 +35,9 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+});
+
+document.addEventListener('turbolinks:load', () => {
+    flatpickr(".datepicker", {
+  });
 });

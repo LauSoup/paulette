@@ -1,9 +1,7 @@
 class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      # scope.all
-      users_initial = User.all
-      @users = users_initial.reject { |user| user.hens.empty? }
+      scope.all
     end
   end
 

@@ -1,5 +1,5 @@
 <!-- Banner -->
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/375510/pexels-photo-375510.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://s3-eu-west-1.amazonaws.com/fakepeople/male/256/57.png);">
   <div class="container">
     <h1><%= @user.name.capitalize %></h1>
     <p>A true hen lover!</p>
@@ -30,12 +30,12 @@
     <div class="card-body">
 
       <h3 class="card-title">His hens!</h3>
-      
+
       <div class="text-right">
         <% if policy(Hen).create? %>
           <%= link_to "Add a new hen",  new_user_hen_path(current_user), class: "btn-yellow small-btn" %>
         <% end %>
-      </div>  
+      </div>
 
       <div class="hen-cards">
         <% if policy(Request).create? %>

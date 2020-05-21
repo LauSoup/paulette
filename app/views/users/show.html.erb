@@ -91,5 +91,15 @@
       </div>
     </div>
 
+
+    <div class="reviews">
+      <h5 style="text-align: center">Let's see <%= @user.name %> reviews</h5>
+        <% @hens.each do |hen| %>
+          <% hen.reviews.each do |review|  %>
+          <li style="list-style: none"><%= review.rating %> - <%= review.content %></li>
+          <% end %>
+        <% end %>
+   </div>
+
   </div>
 </div>

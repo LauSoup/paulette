@@ -65,7 +65,11 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Authorization gems
 gem 'devise'
 gem 'pundit'
 
+# gem to store keys in another file not sent to github
 gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'cloudinary', '~> 1.12.0'

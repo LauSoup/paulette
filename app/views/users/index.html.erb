@@ -6,7 +6,11 @@
       <%= link_to user_path(user) do%>
       <div class="card-product">
         <h6><%= user.hens.where(disponibility: true).length %> 🐓 available!</h6>
-        <img src="https://poulespondeuses.com/wp-content/uploads/2018/02/Tonio-Poule-1080x810.jpg" />
+        <% if user.photo.attached? %>
+          <%= cl_image_tag user.photo.key %>
+        <% else %>
+          <%= image_tag("https://poulespondeuses.com/wp-content/uploads/2018/02/Tonio-Poule-1080x810.jpg") %>
+        <% end %>
         <div class="card-product-infos">
           <h2><%= user.name %></h2>
           <p><%= user.address %></p>

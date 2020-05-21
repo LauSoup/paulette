@@ -7,6 +7,7 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :hens
   has_many :requests
+  has_one_attached :photo
 
   # validates :name, presence: true
   # validates :email, presence: true, uniqueness: true

@@ -1,0 +1,16 @@
+
+<div class="container">
+  <h3>Please update your profile below 👇</h3>
+</div>
+
+
+<div class="container">
+  <%= simple_form_for(@user) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :address %>
+    <br>
+    <br>
+    <%= f.submit class: "btn-yellow" %>
+  <% end %>
+</div>

@@ -1,10 +1,10 @@
 
 <div class="text-center", style="margin-top: 20px">
-  <h1>Would you like to leave a comment about <%= @hen.user.name %></h1>
+  <h1>Would you like to leave a comment about <%= @hen.user.name %> ?</h1>
   <div class="container mt-3", style="width: 400px">
     <%= simple_form_for [ @hen, @review ] do |f| %>
       <%= f.input :content, label: 'Leave your comment' %>
-      <%= f.input :rating %>
+      <%= f.input :rating, label: 'Your vote (1 to 5)' %>
       <%= f.submit "Validate", class: "small-btn btn-yellow" %>
   <% end %>
   </div>

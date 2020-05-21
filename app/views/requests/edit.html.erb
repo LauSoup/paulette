@@ -5,12 +5,14 @@
 
     <h1>Modify your booking of <%= @hen.name %> 🐔</h1>
     <p>Your previous booking was from <%= @request.beginning %> to <%= @request.ending %></p>
-    <%= simple_form_for [ @hen, @request ] do |f| %>
-      <%= f.input :beginning, label: 'From'%>
+      <div class="container mt-3", style="width: 400px"x>
+        <%= simple_form_for [ @hen, @request ] do |f| %>
+          <%= f.input :beginning, as: :string, label: 'From', input_html: { class: "datepicker" }%>
+          <%= f.input :ending, as: :string, label: 'To', input_html: { class: "datepicker" } %>
+          <%= f.submit "Validate", class: "small-btn btn-yellow" %>
 
-      <%= f.input :ending, label: 'To' %>
-      <%= f.submit "Validate", class: "small-btn btn-yellow" %>
-    <% end %>
+      <% end %>
+      </div>
     <%= link_to "Dashboard", dashboard_path, class: "big-btn btn-yellow dashboard-btn" %>
     </div>
 

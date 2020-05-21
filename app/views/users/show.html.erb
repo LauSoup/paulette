@@ -57,6 +57,7 @@
                   <p class="card-text"><%= hen.breed %></p>
                   <p class="card-text">Price: <%= hen.price %>€.</p>
                   <p class="card-text"><%= hen.name %> is <%= hen.age.round %> years old!</p>
+
                   <% if hen.disponibility == true %>
                     <%= link_to new_hen_request_url(hen) do %>
                       <div class="text-right">

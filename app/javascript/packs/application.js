@@ -8,6 +8,10 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import flatpickr from 'flatpickr'
+import 'flatpickr/dist/flatpickr.min.css'
+flatpickr(".datepicker", {
+});
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

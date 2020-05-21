@@ -2,9 +2,18 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    # users_initial = User.all
-    # @users = users_initial.reject { |user| user.hens.empty? }
-    @users = policy_scope(User)
+    skip_policy_scope
+    if params[:query].present?
+      sql_query = " \
+        users.name ILIKE :query \
+        OR users.description ILIKE :query \
+        OR users.address ILIKE :query \
+      "
+      users =  User.where(sql_query, query: "%#{params[:query]}%")
+      @users = users.geocoded.reject { |user| user.hens.empty? }
+    else
+      @users = User.all.geocoded.reject { |user| user.hens.empty? }
+    end
     @markers = @users.map do |user|
       {
         lat: user.latitude,
@@ -40,8 +49,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :description, :address)
+    params.require(:user).permit(:name, :description, :address, :photo)
   end
-  
+
 
 end

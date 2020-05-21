@@ -1,14 +1,15 @@
 
-<div class="container">
+<div class="container", style="margin-top:30px">
   <h3>Please update your profile below 👇</h3>
 </div>
 
 
-<div class="container">
+<div class="container", style="width:400px">
   <%= simple_form_for(@user) do |f| %>
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :address %>
+    <%= f.input :photo, as: :file %>
     <br>
     <br>
     <%= f.submit class: "btn-yellow" %>

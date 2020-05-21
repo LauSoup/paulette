@@ -1,7 +1,7 @@
 <!-- Banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/375510/pexels-photo-375510.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260);">
   <div class="container">
-    <h1><%= @user.name %></h1>
+    <h1><%= @user.name.capitalize %></h1>
     <p>A true hen lover!</p>
   </div>
 </div>
@@ -13,19 +13,29 @@
   <!-- Bootstrap classes to be removed. Wait for Noeline's seeds! -->
   <div class="card" id="farmer-intro-card">
     <!-- Contains the info about the user -->
-    <div class="card-body">
-      <h3 class="card-title"><%= @user.name %></h3>
-      <p class="card-text"><%= @user.address %></p>
-      <p class="card-text"><%= @user.description %></p>
-
+      <div class="card-body">
+        <h3 class="card-title"><%= @user.name.capitalize %></h3>
+        <p class="card-text"><%= @user.address %></p>
+        <p class="card-text"><%= @user.description %></p>
+        <div class="text-right">
+          <% if policy(User).update? %>
+            <%= link_to "Modify", edit_user_path(current_user), class: "btn-yellow small-btn right-button" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
 
   <div class="card">
 
     <div class="card-body">
 
       <h3 class="card-title">His hens!</h3>
+      
+      <div class="text-right">
+        <% if policy(Hen).create? %>
+          <%= link_to "Add a new hen",  new_user_hen_path(current_user), class: "btn-yellow small-btn" %>
+        <% end %>
+      </div>  
 
       <div class="hen-cards">
         <% if policy(Request).create? %>

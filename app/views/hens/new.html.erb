@@ -1,0 +1,19 @@
+
+<div class="container">
+  <h3>Please create your hen below 👇</h3>
+</div>
+
+
+<div class="container">
+  <%= simple_form_for [@user, @hen] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :age %>
+    <%= f.input :price %>
+    <%= f.input :disponibility %>
+    <br>
+    <br>
+    <%= f.submit class: "btn-yellow" %>
+  <% end %>
+</div>
+

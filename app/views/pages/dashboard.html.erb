@@ -18,7 +18,9 @@
               <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
           <% end %>
-          <%= link_to "Leave a comment" %>
+          <div class="text-right">
+            <%= link_to "Leave a comment", new_hen_review_path(request.hen.id) %>
+          </div>
         </div>
       </div>
     <% end %>

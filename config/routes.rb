@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :hens, only: [] do
     resources :requests, only: [:new, :create, :edit, :update]
+    resources :reviews, only: [:new, :create]
   end
   resources :requests, only: [:destroy]
   get 'dashboard', to:'pages#dashboard'

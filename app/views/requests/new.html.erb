@@ -2,7 +2,7 @@
   <div class="content-wrapper form-container form-bg-opacity">
     <div class="request-card">
     <h1>Book <%= @hen.name %> 🐔</h1>
-      <div class="container mt-3", style="width: 400px"x>
+      <div class="container mt-3", style="width: 400px">
         <%= simple_form_for [ @hen, @request ] do |f| %>
           <%= f.input :beginning, as: :string, label: 'From', input_html: { class: "datepicker" }%>
           <%= f.input :ending, as: :string, label: 'To', input_html: { class: "datepicker" } %>

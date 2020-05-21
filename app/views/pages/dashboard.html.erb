@@ -5,7 +5,11 @@
 
     <% @user.requests.each do |request| %>
       <div class="card-product">
-        <img src="https://source.unsplash.com/featured/?chicken" />
+          <% if request.hen.photo.attached? %>
+            <%= cl_image_tag request.hen.photo.key %>
+          <% else %>
+            <%= image_tag("australorp.png") %>
+          <% end %>
         <div class="card-product-infos">
           <p>Hen booked: <strong><%= request.hen[:name] %></strong></p>
           <p>Owner name: <strong><%= request.hen.user[:name] %></strong></p>
@@ -18,9 +22,13 @@
               <i class="fa fa-trash" aria-hidden="true"></i>
             <% end %>
           <% end %>
+          <div class="text-right">
+            <%= link_to "Leave a comment", new_hen_review_path(request.hen.id) %>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
 

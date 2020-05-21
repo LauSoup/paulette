@@ -18,7 +18,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: inline-grid;
   align-items: center;
-  margin: 20px 0px;
+  margin: 10px 0px;
   border-radius: 4px;
   position: relative;
   h6 {
@@ -65,6 +65,36 @@
 .card-product .card-product-infos i {
   text-decoration: none;
   color: black;
+}
+
+// display card index with map
+
+.main-container {
+  display: flex;
+  background-color: #F4F4F4;
+}
+
+.container-index {
+  text-align: center;
+  h2 {
+    font-size: 48px;
+    font-weight: bold;
+    padding: 30px;
+    color: black;
+    opacity: 0.6;
+  }
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  flex-grow: 0;
+  margin-right: 10px;
+  margin-left: 10px;
+  border: none;
+  padding: 0px;
+  background-color: #F4F4F4;
 }
 
 // Edgar's cards
@@ -172,6 +202,8 @@
   .hen-cards {
     grid-template-columns: 1fr 1fr;
   }
+
+
 }
 
 @media (max-width: 900px) {

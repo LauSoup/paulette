@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
 
   def new
-    # @hen = Hen.find(params[:hen_id])
-    # @user = @hen.user_id
-    # @review = Review.new
+    @hen = Hen.find(params[:hen_id])
+   # @user = @hen.user_id
+    @review = Review.new
+    authorize @review
   end
 
   # def create

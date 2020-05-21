@@ -10,11 +10,18 @@ class UsersController < ApplicationController
         OR users.address ILIKE :query \
       "
       users =  User.where(sql_query, query: "%#{params[:query]}%")
-      @users = users.reject { |user| user.hens.empty? }
+      @users = users.geocoded.reject { |user| user.hens.empty? }
     else
-      @users = User.all.reject { |user| user.hens.empty? }
+      @users = User.all.geocoded.reject { |user| user.hens.empty? }
     end
-
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('marker_orange_full')
+      }
+    end
   end
 
   def show
@@ -44,6 +51,6 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :description, :address)
   end
-  
+
 
 end

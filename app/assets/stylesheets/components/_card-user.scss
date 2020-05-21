@@ -69,7 +69,7 @@
 
 // display card index with map
 
-.main-container {
+.main-container-index {
   display: flex;
   background-color: #F4F4F4;
 }
@@ -85,7 +85,7 @@
   }
 }
 
-.card {
+.cards-index {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;

@@ -1,17 +1,18 @@
 <div class="container-index">
   <h2>Find your hen!</h2>
 </div>
-<div class="main-container">
-  <div class="card">
+
+<div class="main-container-index">
+  <div class="cards-index">
     <% @users.each do |user| %>
-      <%= link_to user_path(user) do%>
+     <%= link_to user_path(user) do%>
       <div class="card-product">
-        <h6><%= user.hens.where(disponibility: true).length %> 🐓 available!</h6>
-        <% if user.photo.attached? %>
-          <%= cl_image_tag user.photo.key %>
-        <% else %>
-          <%= image_tag("https://poulespondeuses.com/wp-content/uploads/2018/02/Tonio-Poule-1080x810.jpg") %>
-        <% end %>
+          <h6><%= user.hens.where(disponibility: true).length %> 🐓 available!</h6>
+          <% if user.photo.attached? %>
+            <%= cl_image_tag user.photo.key %>
+          <% else %>
+            <%= image_tag("https://poulespondeuses.com/wp-content/uploads/2018/02/Tonio-Poule-1080x810.jpg") %>
+          <% end %>
         <div class="card-product-infos">
           <h2><%= user.name %></h2>
           <p><%= user.address %></p>
@@ -22,12 +23,13 @@
               <% total << review.rating %>
               <% end %>
             <% end %>
-              <% sum = total.sum %>
-              <% size = total.size %>
-              <% total = sum.fdiv(size) %>
-              <%= total %>
+            <% sum = total.sum %>
+            <% size = total.size %>
+            <% total = sum.fdiv(size) %>
+            <%= total %>
           </div>
         </div>
+      </div>
       <% end %>
     <% end %>
   </div>

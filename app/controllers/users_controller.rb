@@ -5,6 +5,14 @@ class UsersController < ApplicationController
     # users_initial = User.all
     # @users = users_initial.reject { |user| user.hens.empty? }
     @users = policy_scope(User)
+    @markers = @users.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('marker_orange_full')
+      }
+    end
   end
 
   def show

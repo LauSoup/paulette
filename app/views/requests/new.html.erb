@@ -1,22 +1,14 @@
 <div class="form-container">
   <div class="content-wrapper form-container form-bg-opacity">
-
     <div class="request-card">
-
     <h1>Book <%= @hen.name %> 🐔</h1>
-
-    <% if @hen.disponibility == false %>
-      <p>Unfortunately, this hen is not available at the moment, please choose another one</p>
-      <%= link_to "Return to farmer", user_path(@hen.user_id), class: "small-btn btn-yellow" %>
-    <% else %>
-    <%= simple_form_for [ @hen, @request ] do |f| %>
-      <%= f.input :beginning, label: 'From'%>
-
-      <%= f.input :ending, label: 'To' %>
-      <%= f.submit "Validate", class: "small-btn btn-yellow" %>
-    <% end %>
-    <% end %>
+      <div class="container mt-3", style="width: 400px">
+        <%= simple_form_for [ @hen, @request ] do |f| %>
+          <%= f.input :beginning, as: :string, label: 'From', input_html: { class: "datepicker" }%>
+          <%= f.input :ending, as: :string, label: 'To', input_html: { class: "datepicker" } %>
+          <%= f.submit "Validate", class: "small-btn btn-yellow" %>
+      <% end %>
     </div>
-
+    </div>
   </div>
 </div>

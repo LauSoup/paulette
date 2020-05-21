@@ -18,8 +18,10 @@
         <p class="card-text"><%= @user.address %></p>
         <p class="card-text"><%= @user.description %></p>
         <div class="text-right">
-          <% if policy(User).update? %>
-            <%= link_to "Modify", edit_user_path(current_user), class: "btn-yellow small-btn right-button" %>
+          <% if current_user == @user %>
+            <% if policy(User).update? %>
+              <%= link_to "Modify", edit_user_path(current_user), class: "btn-yellow small-btn right-button" %>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -32,8 +34,10 @@
       <h3 class="card-title">His hens!</h3>
 
       <div class="text-right">
-        <% if policy(Hen).create? %>
-          <%= link_to "Add a new hen",  new_user_hen_path(current_user), class: "btn-yellow small-btn" %>
+        <% if current_user == @user %>
+          <% if policy(Hen).create? %>
+            <%= link_to "Add a new hen",  new_user_hen_path(current_user), class: "btn-yellow small-btn" %>
+          <% end %>
         <% end %>
       </div>
 
@@ -65,10 +69,12 @@
                       <i class="fa fa-ban" aria-hidden="true"></i> Victime de son succès
                     </div>
                   <% end %>
-                  <%= link_to edit_user_hen_path(@user, hen) do %>
-                      <div class="text-right">
-                        <i class="fa fa-arrow-right" aria-hidden="true"></i>Update <%= hen.name %>
-                      </div>
+                  <% if current_user == @user %>
+                    <%= link_to edit_user_hen_path(@user, hen) do %>
+                        <div class="text-right">
+                          <i class="fa fa-arrow-right" aria-hidden="true"></i>Update <%= hen.name %>
+                        </div>
+                      <% end %>
                     <% end %>
                 </div>
               </div>

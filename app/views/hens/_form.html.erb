@@ -1,0 +1,11 @@
+<%= simple_form_for [user, hen] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :age %>
+    <%= f.input :price %>
+    <%= f.input :disponibility %>
+    <%= f.input :photo, as: :file %>
+    <br>
+    <br>
+    <%= f.submit class: "btn-yellow" %>
+<% end %>

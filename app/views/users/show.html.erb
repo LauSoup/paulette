@@ -113,9 +113,14 @@
     <div class="card-review">
      <img src="https://source.unsplash.com/featured/?person">
       <div class="card-review-infos">
-        <% @hens.each do |hen| %>
+          <% @hens.each do |hen| %>
           <% hen.reviews.each do |review|  %>
           <li style="list-style: none"> <em> Date: </em> <%= review.created_at %><br>
+            <% hen.requests.each do |request| %>
+            <% endDate = request.ending %>
+            <% beginDate = request.beginning %>
+            Number of eggs collected : <%= (endDate - beginDate).to_i %>
+            <% end %> <br>
             <% review.rating.times do %>
               <i class='fas fa-star'></i>
             <% end %>

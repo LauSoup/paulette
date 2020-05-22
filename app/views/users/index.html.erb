@@ -15,8 +15,8 @@
           <% end %>
         <div class="card-product-infos">
           <h2><%= user.name %></h2>
-          <p><%= user.address %></p>
-          <div class="text-right">
+          <p><i class="fas fa-home"></i>   <%= user.address %></p>
+          <div id="rating">
             <% total = [] %>
             <% user.hens.each do |hen| %>
               <% hen.reviews.each do |review|  %>
@@ -26,15 +26,19 @@
             <% sum = total.sum %>
             <% size = total.size %>
             <% total = sum.fdiv(size) %>
-              <% if total > 0 %>
-                <%= total %>
-              <% end %>
-            </div>
             <% if total > 0 %>
-              <%= total %>
+              <% total = total.to_i %>
+              <% total.times do %>
+                <i class='fas fa-star'></i> 
+              <% end %>
+              <% blank_stars = 5 - total %>
+              <% blank_stars.times do %>
+                <i class="far fa-star"></i>
+              <% end %>
             <% end %>
           </div>
         </div>
+      </div>
       <% end %>
     <% end %>
   </div>

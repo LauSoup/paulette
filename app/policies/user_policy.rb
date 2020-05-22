@@ -10,7 +10,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    return true
+    record == user
   end
 
 end

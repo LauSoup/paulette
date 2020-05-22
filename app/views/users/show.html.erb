@@ -1,7 +1,7 @@
 <!-- Banner -->
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://s3-eu-west-1.amazonaws.com/fakepeople/male/256/57.png);">
+<div class="banner">
   <div class="container">
-    <h1><%= @user.name.capitalize %></h1>
+    <h1 id="banner-title"><%= @user.name.capitalize %></h1>
     <p>A true hen lover!</p>
   </div>
 </div>
@@ -11,12 +11,16 @@
 
   <!-- User Info Card -->
   <!-- Bootstrap classes to be removed. Wait for Noeline's seeds! -->
-  <div class="card" id="farmer-intro-card">
+  <div class="user-info-card">
     <!-- Contains the info about the user -->
+      <div class="farmer-photo-info">
+        <%= cl_image_tag @user.photo.key, :class => "farmer-photo-info" %>
+      </div>
       <div class="card-body">
         <h3 class="card-title"><%= @user.name.capitalize %></h3>
-        <p class="card-text"><%= @user.address %></p>
+        <p class="card-text bold-info-p"><i class="fas fa-map-pin"></i> <%= @user.address %></p>
         <p class="card-text"><%= @user.description %></p>
+        <a href="#reviews">Reviews 👇</a>
         <div class="text-right">
           <% if current_user == @user %>
             <% if policy(User).update? %>
@@ -99,13 +103,27 @@
 
 
     <div class="reviews">
+      <a name="reviews"></a>
       <h5 style="text-align: center">Let's see <%= @user.name %> reviews</h5>
-        <% @hens.each do |hen| %>
-          <% hen.reviews.each do |review|  %>
-          <li style="list-style: none"><%= review.rating %> - <%= review.content %></li>
-          <% end %>
-        <% end %>
    </div>
 
+    <div class="card-review">
+     <img src="https://source.unsplash.com/featured/?person">
+      <div class="card-review-infos">
+        <% @hens.each do |hen| %>
+          <% hen.reviews.each do |review|  %>
+          <li style="list-style: none"> • <%= review.created_at %> <br>
+            <% review.rating.times do %>
+              <i class='fas fa-star'></i>
+            <% end %>
+            <% blank_stars = 5 - review.rating %>
+            <% blank_stars.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          Comment : </b></em><%= review.content %></li>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

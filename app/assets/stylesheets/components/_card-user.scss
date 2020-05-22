@@ -71,7 +71,7 @@
 
 .main-container-index {
   display: flex;
-  background-color: #F4F4F4;  
+  background-color: #F4F4F4;
 }
 
 .container-index {
@@ -136,8 +136,10 @@
   opacity:0.6;
 }
 
-#farmer-intro-card {
+.card .farmer-intro-card {
+  display: flex;
   margin-bottom: 40px;
+
 }
 
 // FORM CARDS

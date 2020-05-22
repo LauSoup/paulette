@@ -37,3 +37,4 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   flatpickr(".datepicker");
 });
+

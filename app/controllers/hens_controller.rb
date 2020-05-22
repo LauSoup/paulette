@@ -38,7 +38,7 @@ class HensController < ApplicationController
   private
 
   def hen_params
-    params.require(:hen).permit(:user_id, :description, :disponibility, :price, :name, :age,:photo)
+    params.require(:hen).permit(:user_id, :description, :disponibility, :price, :name, :age,:photo, :breed)
   end
 
   def set_hen

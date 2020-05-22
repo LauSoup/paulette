@@ -43,10 +43,40 @@
     padding: 5px;
     border-radius: 5px;
   }
+
+  #price {
+    position: absolute;
+    bottom: 53px;
+    right: 4px;
+    color: white;
+    font-size: 16px;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 1;
+  }
+
+  #book {
+    position: absolute;
+    bottom: 10px;
+    right: 4px;
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.1);
+  }
 }
 
-.card-product:hover {
+.hover:hover {
   opacity: 0.8;
+}
+
+#update {
+  background-color: rgba(255,255,255,30);
+  color: $hen-green;
+
 }
 
 .card-product img {
@@ -74,11 +104,9 @@
   padding: 13px;
   position: relative;
   text-align: left;
+  color: white;
 }
 
-.card-product-infos {
-  height: 70px;
-}
 
 .card-product .card-product-infos a {
   text-decoration: none;
@@ -88,6 +116,7 @@
   text-decoration: none;
   color: white;
 }
+
 
 // display card index with map
 
@@ -131,7 +160,7 @@
 }
 .hen-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   margin-top: 20px;
 }

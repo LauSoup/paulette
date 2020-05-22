@@ -2,7 +2,7 @@
   <div class="cards-index">
     <% @users.each do |user| %>
      <%= link_to user_path(user) do%>
-      <div class="card-product">
+      <div class="card-product hover">
           <h6><%= user.hens.where(disponibility: true).length %> 🐓 available!</h6>
           <% if user.photo.attached? %>
             <%= cl_image_tag user.photo.key %>

@@ -1,15 +1,15 @@
 <div class="dashboard text-align-center">
   <div class="container">
-    <h1>Welcome <%= @user.name.capitalize %> !</h1>
+    <h1 id="title-black">Welcome <%= @user.name.capitalize %> !</h1>
 
     <!-- TAB Navigation -->
 
     <ul class="nav nav-tabs justify-content-center">
       <li class="nav-item active">
-        <a class="nav-link " href="#his-requests" data-toggle="tab">My bookings</a>
+        <a class="nav-link" href="#his-requests" data-toggle="tab" style="text-decoration: none;" id="title-black">My bookings</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#rental-requests" data-toggle="tab">Rental requests</a>
+        <a class="nav-link" href="#rental-requests" data-toggle="tab" style="text-decoration: none;" id="title-black">Rental requests</a>
       </li>
     </ul>
 
@@ -20,7 +20,7 @@
       <!-- TAB for REQUESTS: -->
       <div class="tab-pane" id="his-requests">
         <div class="card-product-container">
-          <h2>My bookings:</h2>
+          <h2 id="title-black">My bookings:</h2>
           <% @user.requests.each do |request| %>
           <div class="card-product">
               <% if request.hen.photo.attached? %>
@@ -53,7 +53,7 @@
 
       <div class="tab-pane" id="rental-requests">
         <div class="card-product-container" >
-          <h2>Pending customer requests:</h2>
+          <h2 id="title-black">Pending customer requests:</h2>
           <% @requests.each do |request| %>
           <div class="card-product">
               <% if request.hen.photo.attached? %>

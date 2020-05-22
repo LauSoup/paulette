@@ -5,6 +5,9 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: $body-hen-font;
+  border-radius: 10px;
+  height: 60px;
+  padding: 2px;
 }
 
 #map {
@@ -19,17 +22,15 @@
 .info-window {
   a {
     text-decoration: none;
-    color: #ffb367;
+    color: #58b4ae;
     font-size: 16px;
   }
   h6 {
     font-weight: bold;
   }
   p {
-    color: #ffb367;
+    color: #58b4ae;
     font-size: 12px;
   }
-  border-radius: 15px;
-  height: 35px;
-  padding: 5px;
+  margin: 10px;
 }

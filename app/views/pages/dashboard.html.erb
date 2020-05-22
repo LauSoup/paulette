@@ -1,9 +1,29 @@
 <div class="dashboard text-align-center">
   <div class="container">
     <h1>Welcome <%= @user.name.capitalize %> !</h1>
-    <h2>Please see below your requests:</h2>
 
-    <% @user.requests.each do |request| %>
+    <!-- TAB Navigation -->
+
+    <ul class="nav nav-tabs justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+
+    <!-- TAB for REQUESTS: -->
+
+    <div class="card-product-container" id="his-requests">
+      <% @user.requests.each do |request| %>
+      <h2>Please see below your requests:</h2>
       <div class="card-product">
           <% if request.hen.photo.attached? %>
             <%= cl_image_tag request.hen.photo.key %>
@@ -28,6 +48,27 @@
         </div>
       </div>
     <% end %>
+    </div>
+
+    <!-- TAB for HENS: -->
+
+
+    <div class="card-product-container" id="his-hens">
+      <h2>Please see below your hens:</h2>
+      <% @user.hens.each do |hen| %>
+      <div class="card-product">
+          <% if hen.photo.attached? %>
+            <%= cl_image_tag request.hen.photo.key %>
+          <% else %>
+            <%= image_tag("australorp.png") %>
+          <% end %>
+        <div class="card-product-infos">
+          <p>Your hen: <strong><%= hen[:name] %></strong></p>
+        </div>
+      </div>
+    <% end %>
+    </div>
+
   </div>
 </div>
 

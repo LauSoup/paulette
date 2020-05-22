@@ -31,6 +31,30 @@ user = User.new(
   password: password
 )
 user.save!
+5.times do
+  surname = Faker::Creature::Cat.name
+  p surname
+  age_hen = (1..8).to_a.sample
+  p age_hen
+  price_hen = (8..15).to_a.sample
+  p price_hen
+  description = Faker::Lorem.paragraph(sentence_count: 2)
+  p description
+  breed_hen = ['ISA Brown', 'Plymouth Rock', 'Barnevelder', 'Australorp', 'Naked Neck', 'Orpington', 'Silkie', 'New Hampshire Red'].sample
+  p breed_hen
+  availability_array = [true, false]
+  hen = Hen.new(
+    breed: breed_hen,
+    description: description,
+    price: price_hen,
+    name: surname,
+    age: age_hen,
+    disponibility: availability_array.sample
+    )
+  hen.user_id = user.id
+  hen.save!
+  puts 'Hen added.'
+end
 p "poulette created."
 
 #CREATION OF OTHER SEED USER

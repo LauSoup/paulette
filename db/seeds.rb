@@ -13,8 +13,8 @@ require 'faker'
 OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
 OpenURI::Buffer.const_set 'StringMax', 0
 
-Hen.destroy_all
-User.destroy_all
+# Hen.destroy_all
+# User.destroy_all
 
 # Default user
 
@@ -35,7 +35,7 @@ p "poulette created."
 
 #CREATION OF OTHER SEED USER
 
-# HIGH QUALITY FACIAL PICTURES API.
+# HIGH QUALITY FACIAL PICTURES API (GENERATED API)
 
 image_json_url = "https://api.generated.photos/api/v1/faces?api_key=#{ENV['RANDOM_FACES_API_KEY']}"
 
@@ -45,33 +45,29 @@ person_index = 0
 # CREATION OF 10 USERS
 10.times do
   p "Creating user."
-  # Creating photo of user:
+  # OPEning and PARSING JSON.
   image_json = open(image_json_url).read
-  p "hey1"
   image_info = JSON.parse(image_json)
-  p"hey2"
+  # Retrieving image-url from the json, as well as associated image gender.
   image_url = image_info["faces"][person_index]["urls"][4]["512"]
   image = URI.open(image_url)
   image_gender = image_info["faces"][person_index]["meta"]["gender"][0]
-  p image_gender
 
-  # Creating data of user.
-
+  # Creating data of user with RANDOMUSER API.
+  # OPEning and PARSING JSON.
   data_url = "https://randomuser.me/api/?nat=fr&gender=#{image_gender}"
   user_json = open(data_url).read
   user = JSON.parse(user_json)
+
+  # CREATING the user's parameters
   full_name = "#{user["results"][0]["name"]["first"]} #{user["results"][0]["name"]["last"]}"
   email = user["results"][0]["email"]
   address = user["results"][0]["location"]["city"]
   description = "#{full_name} is a #{Faker::Job.title} at #{Faker::Company.name}, a company operating in the #{Faker::Company.industry} industry. #{user["results"][0]["name"]["first"]} lives in the state of #{user["results"][0]["location"]["state"]} and is passionate about hens."
   password = 'poulette'
-  p image.class
   latitude = user["results"][0]["location"]["coordinates"]["latitude"].to_f
   longitude = user["results"][0]["location"]["coordinates"]["longitude"].to_f
-  p latitude
-  p longitude
-  p full_name
-  user = User.new(
+  final_user = User.new(
     name: full_name,
     email: email,
     address: address,
@@ -80,19 +76,15 @@ person_index = 0
   )
   p "------------------------------"
 
-  user.photo.attach(io: image, filename: 'nes.jpg', content_type: 'image/jpg')
-  p user.photo.attached?
-  p user.valid?
-  # p image_url
-  # user.save!
+  final_user.photo.attach(io: image, filename: 'nes.jpg', content_type: 'image/jpg')
+  p final_user.photo.attached?
+  p final_user.valid?
   p image_url
   p image.class
-  user.save!
-  p "------------------------------"
+  final_user.save!
   puts 'User added.'
   puts 'Creating 5 fake hens per user...'
-
-
+  p "------------------------------"
 
   # HENS BEING ADDED
   5.times do
@@ -115,13 +107,10 @@ person_index = 0
       age: age_hen,
       disponibility: availability_array.sample
       )
-    hen.user_id = user.id
+    hen.user_id = final_user.id
     hen.save!
     puts 'Hen added.'
   end
-
-  # HENS
-
   puts 'All 5 hens added.'
   person_index += 1
 end

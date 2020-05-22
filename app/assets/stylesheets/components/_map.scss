@@ -15,3 +15,21 @@
   margin-top: 10px;
   margin-right: 10px;
 }
+
+.info-window {
+  a {
+    text-decoration: none;
+    color: #ffb367;
+    font-size: 16px;
+  }
+  h6 {
+    font-weight: bold;
+  }
+  p {
+    color: #ffb367;
+    font-size: 12px;
+  }
+  border-radius: 15px;
+  height: 35px;
+  padding: 5px;
+}

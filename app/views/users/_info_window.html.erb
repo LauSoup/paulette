@@ -1,2 +1,4 @@
-<h6><%= user.name %></h6>
+<div class="info-window">
+<h6><%= link_to user.name, user_path(user.id) %></h6>
 <p><%= user.hens.where(disponibility: true).length %>🐓</p>
+</div>

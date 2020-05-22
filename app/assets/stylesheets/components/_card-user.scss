@@ -18,7 +18,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: inline-grid;
   align-items: center;
-  margin: 10px 0px;
+  margin: 10px 10px;
   border-radius: 4px;
   position: relative;
   h6 {
@@ -71,30 +71,31 @@
 
 .main-container-index {
   display: flex;
-  background-color: #F4F4F4;  
+  background-color: rgba(255,226,119,0.8);
+
 }
 
 .container-index {
   text-align: center;
+  background-color: rgba(255,226,119,0.8);
+  margin: 0;
   h2 {
     font-size: 48px;
     font-weight: bold;
-    padding: 30px;
-    color: black;
-    opacity: 0.6;
+    padding: 10px;
+    color: white;
+    margin-bottom: 0px;
   }
 }
 
 .cards-index {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
-  flex-grow: 0;
   margin-right: 10px;
   margin-left: 10px;
   border: none;
   padding: 0px;
-  background-color: #F4F4F4;
+  margin-top: 0px;
 }
 
 // Edgar's cards
@@ -202,12 +203,18 @@
   .hen-cards {
     grid-template-columns: 1fr 1fr;
   }
+  .cards-index {
+    grid-template-columns: 1fr 1fr;
+  }
 
 
 }
 
 @media (max-width: 900px) {
   .hen-cards {
+    grid-template-columns: 1fr;
+  }
+  .cards-index {
     grid-template-columns: 1fr;
   }
 }

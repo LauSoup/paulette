@@ -20,6 +20,7 @@
         <h3 class="card-title"><%= @user.name.capitalize %></h3>
         <p class="card-text bold-info-p"><i class="fas fa-map-pin"></i> <%= @user.address %></p>
         <p class="card-text"><%= @user.description %></p>
+        <a href="#reviews">Reviews 👇</a>
         <div class="text-right">
           <% if current_user == @user %>
             <% if policy(User).update? %>

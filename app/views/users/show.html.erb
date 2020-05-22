@@ -43,64 +43,51 @@
       <div class="text-right">
         <% if current_user == @user %>
           <% if policy(Hen).new? %>
-            <%= link_to "Add a new hen",  new_user_hen_path(current_user), class: "btn-yellow small-btn" %>
+            <%= link_to "Add a new hen",  new_user_hen_path(current_user), class: "btn-yellow small-btn hover" %>
           <% end %>
         <% end %>
       </div>
 
       <div class="hen-cards">
-        <% if policy(Request).new? %>
           <% @hens.each do |hen| %>
           <!-- Hen card. -->
           <% hen.disponibility ? availability_filter = "" : availability_filter = "grey-filter"%>
-              <div class="hen-card <%= availability_filter %>">
+              <div class="card-product <%= availability_filter %>" >
                 <% if hen.photo.attached? %>
                   <%= cl_image_tag hen.photo.key %>
                 <% else %>
                   <%= image_tag("australorp.png") %>
                 <% end %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= hen.name %></h5>
-                  <p class="card-text"><%= hen.breed %></p>
-                  <p class="card-text">Price: <%= hen.price %>€.</p>
+                <% if policy(hen).update? %>
+                  <%= link_to edit_user_hen_path(@user, hen) do %>
+                    <h6 id="update">Update</h6>
+                  <% end %>
+                <% end %>
+                <div class="card-product-infos" style="padding-top: 0px">
+                  <h2 class="card-title"><%= hen.name.capitalize %></h5>
+                  <p class="card-text">Breed: <%= hen.breed %></p>
                   <p class="card-text"><%= hen.name %> is <%= hen.age.round %> years old!</p>
 
-                  <% if hen.disponibility == true %>
+                  <p id="price" id="price"><%= hen.price %>€ /mois</p>
+
+                <% if policy(Request).new? %>
+                <% if current_user != @user  %>
+                  <% if hen.disponibility == true  %>
                     <%= link_to new_hen_request_url(hen) do %>
-                      <div class="text-right">
+                      <div class= "hover" id="book">
                         <i class="fa fa-arrow-right" aria-hidden="true"></i>Book <%= hen.name %>
                       </div>
                     <% end %>
                   <% else %>
-                    <div class="text-right">
-                      <i class="fa fa-ban" aria-hidden="true"></i> Victime de son succès
+                    <div id="book">
+                      <i class="fa fa-ban" aria-hidden="true"></i> Booked
                     </div>
                   <% end %>
-                  <% if policy(hen).update? %>
-                    <%= link_to edit_user_hen_path(@user, hen) do %>
-                        <div class="text-right">
-                          <i class="fa fa-arrow-right" aria-hidden="true"></i>Update <%= hen.name %>
-                        </div>
-                      <% end %>
-                    <% end %>
+                <% end %>
                 </div>
               </div>
+              <% end %>
           <% end %>
-        <% else %>
-          <% @hens.each do |hen| %>
-          <!-- Hen card. -->
-          <% hen.disponibility ? availability_filter = "" : availability_filter = "grey-filter"%>
-          <div class="hen-card <%= availability_filter %>">
-            <%= cl_image_tag hen.photo.key %>
-            <div class="card-body">
-              <h5 class="card-title"><%= hen.name %></h5>
-              <p class="card-text"><%= hen.breed %></p>
-              <p class="card-text">Price: <%= hen.price %>€.</p>
-              <p class="card-text"><%= hen.name %> is <%= hen.age.round %> years old!</p>
-            </div>
-          </div>
-          <% end %>
-        <% end %>
       </div>
     </div>
 

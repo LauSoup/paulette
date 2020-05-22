@@ -99,13 +99,21 @@
 
 
     <div class="reviews">
+      <a name="reviews"></a>
       <h5 style="text-align: center">Let's see <%= @user.name %> reviews</h5>
+   </div>
+
+    <div class="card-review">
+     <%= cl_image_tag @user.photo.key %>
+      <div class="card-review-infos">
         <% @hens.each do |hen| %>
           <% hen.reviews.each do |review|  %>
-          <li style="list-style: none"><%= review.rating %> - <%= review.content %></li>
+          <li style="list-style: none"> • <%= review.created_at %> <b><em>Rating: </b></em> <%= review.rating %><b><em><br>
+          Comment : </b></em><%= review.content %></li>
           <% end %>
         <% end %>
-   </div>
+      </div>
+    </div>
 
   </div>
 </div>

@@ -11,7 +11,7 @@ class HenPolicy < ApplicationPolicy
 
   
   def update?
-    return true
+    record.user == user
   end
 
 end

@@ -6,67 +6,70 @@
 
     <ul class="nav nav-tabs justify-content-center">
       <li class="nav-item">
-        <a class="nav-link active" href="#">Active</a>
+        <a class="nav-link active" href="#his-requests" data-toggle="tab">My requests</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="#his-hens" data-toggle="tab">My hens</a>
       </li>
     </ul>
 
-    <!-- TAB for REQUESTS: -->
+    <!-- Tab contents -->
 
-    <div class="card-product-container" id="his-requests">
-      <% @user.requests.each do |request| %>
-      <h2>Please see below your requests:</h2>
-      <div class="card-product">
-          <% if request.hen.photo.attached? %>
-            <%= cl_image_tag request.hen.photo.key %>
-          <% else %>
-            <%= image_tag("australorp.png") %>
-          <% end %>
-        <div class="card-product-infos">
-          <p>Hen booked: <strong><%= request.hen[:name] %></strong></p>
-          <p>Owner name: <strong><%= request.hen.user[:name] %></strong></p>
-          <p>Period: <%= request.beginning %> to <%= request.ending %></p>
-          <%if policy(request).edit? %>
-            <%= link_to edit_hen_request_path(request.hen.id, request.id) do %>
-              <i class="far fa-edit" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to request_path(request.id), method: :delete, data: {confirm: 'Are you sure?'} do %>
-              <i class="fa fa-trash" aria-hidden="true"></i>
-            <% end %>
-          <% end %>
-          <div class="text-right">
-            <%= link_to "Leave a comment", new_hen_review_path(request.hen.id) %>
+    <div class="tab-content">
+
+      <!-- TAB for REQUESTS: -->
+      <div class="tab-pane" id="his-requests">
+        <div class="card-product-container">
+          <% @user.requests.each do |request| %>
+          <h2>Please see below your requests:</h2>
+          <div class="card-product">
+              <% if request.hen.photo.attached? %>
+                <%= cl_image_tag request.hen.photo.key %>
+              <% else %>
+                <%= image_tag("australorp.png") %>
+              <% end %>
+            <div class="card-product-infos">
+              <p>Hen booked: <strong><%= request.hen[:name] %></strong></p>
+              <p>Owner name: <strong><%= request.hen.user[:name] %></strong></p>
+              <p>Period: <%= request.beginning %> to <%= request.ending %></p>
+              <%if policy(request).edit? %>
+                <%= link_to edit_hen_request_path(request.hen.id, request.id) do %>
+                  <i class="far fa-edit" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to request_path(request.id), method: :delete, data: {confirm: 'Are you sure?'} do %>
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+              <div class="text-right">
+                <%= link_to "Leave a comment", new_hen_review_path(request.hen.id) %>
+              </div>
+            </div>
           </div>
+        <% end %>
         </div>
       </div>
-    <% end %>
-    </div>
 
-    <!-- TAB for HENS: -->
+      <!-- TAB for HENS: -->
 
-
-    <div class="card-product-container" id="his-hens">
-      <h2>Please see below your hens:</h2>
-      <% @user.hens.each do |hen| %>
-      <div class="card-product">
-          <% if hen.photo.attached? %>
-            <%= cl_image_tag request.hen.photo.key %>
-          <% else %>
-            <%= image_tag("australorp.png") %>
-          <% end %>
-        <div class="card-product-infos">
-          <p>Your hen: <strong><%= hen[:name] %></strong></p>
+      <div class="tab-pane" id="his-hens">
+        <div class="card-product-container" >
+          <h2>Please see below your hens:</h2>
+          <% @user.hens.each do |hen| %>
+          <div class="card-product">
+              <% if hen.photo.attached? %>
+                <%= cl_image_tag request.hen.photo.key %>
+              <% else %>
+                <%= image_tag("australorp.png") %>
+              <% end %>
+            <div class="card-product-infos">
+              <p>Your hen: <strong><%= hen[:name] %></strong></p>
+            </div>
+          </div>
+        <% end %>
         </div>
       </div>
-    <% end %>
+
+    <!-- End of Div.Tab-content -->
     </div>
 
   </div>

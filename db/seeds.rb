@@ -9,8 +9,14 @@ require 'json'
 require 'open-uri'
 require 'faker'
 
+# Reduce open-uri lower-limit to create temp-files
+OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
+OpenURI::Buffer.const_set 'StringMax', 0
+
 Hen.destroy_all
 User.destroy_all
+
+# Default user
 
 full_name ="poulette"
 email = "poulette@poulette.com"
@@ -25,25 +31,41 @@ user = User.new(
   password: password
 )
 user.save!
-"poulette created."
+p "poulette created."
 
-User.destroy_all
+#CREATION OF OTHER SEED USER
 
-url = 'https://randomuser.me/api/?nat=fr'
+# HIGH QUALITY FACIAL PICTURES API.
 
-20.times do
+image_json_url = "https://api.generated.photos/api/v1/faces?api_key=#{ENV['RANDOM_FACES_API_KEY']}"
+
+# PERSON_index was created to iterate through an array found in the API
+person_index = 0
+
+# CREATION OF 10 USERS
+10.times do
   p "Creating user."
-  user_json = open(url).read
+  # Creating photo of user:
+  image_json = open(image_json_url).read
+  p "hey1"
+  image_info = JSON.parse(image_json)
+  p"hey2"
+  image_url = image_info["faces"][person_index]["urls"][4]["512"]
+  image = URI.open(image_url)
+  image_gender = image_info["faces"][person_index]["meta"]["gender"][0]
+  p image_gender
+
+  # Creating data of user.
+
+  data_url = "https://randomuser.me/api/?nat=fr&gender=#{image_gender}"
+  user_json = open(data_url).read
   user = JSON.parse(user_json)
-  # Creating full name from the JSON.
   full_name = "#{user["results"][0]["name"]["first"]} #{user["results"][0]["name"]["last"]}"
   email = user["results"][0]["email"]
   address = user["results"][0]["location"]["city"]
   description = "#{full_name} is a #{Faker::Job.title} at #{Faker::Company.name}, a company operating in the #{Faker::Company.industry} industry. #{user["results"][0]["name"]["first"]} lives in the state of #{user["results"][0]["location"]["state"]} and is passionate about hens."
   password = 'poulette'
-  image_url = user["results"][0]["picture"]["large"]
-  image = URI.open(image_url)
-  p image
+  p image.class
   latitude = user["results"][0]["location"]["coordinates"]["latitude"].to_f
   longitude = user["results"][0]["location"]["coordinates"]["longitude"].to_f
   p latitude
@@ -100,8 +122,8 @@ url = 'https://randomuser.me/api/?nat=fr'
 
   # HENS
 
-puts 'All 5 hens added.'
-
+  puts 'All 5 hens added.'
+  person_index += 1
 end
 p "20 users added."
 

@@ -5,11 +5,11 @@
     <!-- TAB Navigation -->
 
     <ul class="nav nav-tabs justify-content-center">
-      <li class="nav-item">
-        <a class="nav-link active" href="#his-requests" data-toggle="tab">My requests</a>
+      <li class="nav-item active">
+        <a class="nav-link " href="#his-requests" data-toggle="tab">My bookings</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#his-hens" data-toggle="tab">My hens</a>
+        <a class="nav-link" href="#rental-requests" data-toggle="tab">Rental requests</a>
       </li>
     </ul>
 
@@ -20,8 +20,8 @@
       <!-- TAB for REQUESTS: -->
       <div class="tab-pane" id="his-requests">
         <div class="card-product-container">
+          <h2>My bookings:</h2>
           <% @user.requests.each do |request| %>
-          <h2>Please see below your requests:</h2>
           <div class="card-product">
               <% if request.hen.photo.attached? %>
                 <%= cl_image_tag request.hen.photo.key %>
@@ -49,20 +49,21 @@
         </div>
       </div>
 
-      <!-- TAB for HENS: -->
+      <!-- Tab for CUSTOMERS RENTALS REQUESTS -->
 
-      <div class="tab-pane" id="his-hens">
+      <div class="tab-pane" id="rental-requests">
         <div class="card-product-container" >
-          <h2>Please see below your hens:</h2>
-          <% @user.hens.each do |hen| %>
+          <h2>Pending customer requests:</h2>
+          <% @requests.each do |request| %>
           <div class="card-product">
-              <% if hen.photo.attached? %>
+              <% if request.hen.photo.attached? %>
                 <%= cl_image_tag request.hen.photo.key %>
               <% else %>
                 <%= image_tag("australorp.png") %>
               <% end %>
             <div class="card-product-infos">
-              <p>Your hen: <strong><%= hen[:name] %></strong></p>
+              <p><i class="fas fa-kiwi-bird"></i> Your hen: <strong><%= request.hen[:name] %></strong></p>
+              <p><i class="far fa-calendar-plus"></i> From: <strong><%= request.beginning %></strong> to <strong><%= request.ending %></strong></p>
             </div>
           </div>
         <% end %>

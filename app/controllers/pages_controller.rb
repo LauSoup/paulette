@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
+    @requests = Request.all.select{|hen| hen.user_id == @user.id}
   end
 
 end

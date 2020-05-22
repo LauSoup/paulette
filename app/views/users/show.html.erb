@@ -108,12 +108,18 @@
       <div class="card-review-infos">
         <% @hens.each do |hen| %>
           <% hen.reviews.each do |review|  %>
-          <li style="list-style: none"> • <%= review.created_at %> <b><em>Rating: </b></em> <%= review.rating %><b><em><br>
+          <li style="list-style: none"> • <%= review.created_at %> <br>
+            <% review.rating.times do %>
+              <i class='fas fa-star'></i>
+            <% end %>
+            <% blank_stars = 5 - review.rating %>
+            <% blank_stars.times do %>
+              <i class="far fa-star"></i>
+            <% end %>
           Comment : </b></em><%= review.content %></li>
           <% end %>
         <% end %>
       </div>
     </div>
-
   </div>
 </div>

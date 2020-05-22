@@ -25,8 +25,9 @@
         <h3 class="card-title"><%= @user.name.capitalize %></h3>
         <p class="card-text bold-info-p"><i class="fas fa-map-pin"></i> <%= @user.address %></p>
         <p class="card-text"><%= @user.description %></p>
-        <a href="#reviews">Reviews 👇</a>
-        <div class="text-right">
+        
+        <a class="btn-yellow small-btn right-button" id="review-button" href="#reviews">Reviews 👇</a>
+        <div id="modify-button">
           <% if policy(@user).update? %>
             <%= link_to "Modify", edit_user_path(current_user), class: "btn-yellow small-btn right-button" %>
           <% end %>

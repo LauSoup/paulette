@@ -101,26 +101,26 @@
       </div>
     </div>
 
+  <!--   Review ------------------------------------------------------ -->
 
     <div class="reviews">
       <a name="reviews"></a>
       <h5 style="text-align: center">Let's see <%= @user.name %> reviews</h5>
    </div>
-
     <div class="card-review">
      <img src="https://source.unsplash.com/featured/?person">
       <div class="card-review-infos">
         <% @hens.each do |hen| %>
           <% hen.reviews.each do |review|  %>
-          <li style="list-style: none"> • <%= review.created_at %> <br>
+          <li style="list-style: none"> <em> Date: </em> <%= review.created_at %><br>
             <% review.rating.times do %>
               <i class='fas fa-star'></i>
             <% end %>
             <% blank_stars = 5 - review.rating %>
             <% blank_stars.times do %>
               <i class="far fa-star"></i>
-            <% end %>
-          Comment : </b></em><%= review.content %></li>
+            <% end %> <br>
+          <p><strong> Comment : </strong></b></em><%= review.content %> </p> </li>
           <% end %>
         <% end %>
       </div>

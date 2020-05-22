@@ -14,7 +14,12 @@
   <div class="user-info-card">
     <!-- Contains the info about the user -->
       <div class="farmer-photo-info">
-        <%= cl_image_tag @user.photo.key, :class => "farmer-photo-info" %>
+        <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key %>
+        <% else %>
+          <%= image_tag("https://poulespondeuses.com/wp-content/uploads/2018/02/Tonio-Poule-1080x810.jpg") %>
+        <% end %>
+
       </div>
       <div class="card-body">
         <h3 class="card-title"><%= @user.name.capitalize %></h3>

@@ -8,6 +8,12 @@
   align-items: center;
   margin-bottom: 30px;
 }
+
+.user-info-card img {
+  height:100%;
+  width:200px;
+  object-fit: cover;
+}
 .bold-info-p{
   font-weight:bold;
 }

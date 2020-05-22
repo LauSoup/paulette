@@ -18,10 +18,8 @@
         <p class="card-text"><%= @user.address %></p>
         <p class="card-text"><%= @user.description %></p>
         <div class="text-right">
-          <% if current_user == @user %>
-            <% if policy(User).update? %>
-              <%= link_to "Modify", edit_user_path(current_user), class: "btn-yellow small-btn right-button" %>
-            <% end %>
+          <% if policy(@user).update? %>
+            <%= link_to "Modify", edit_user_path(current_user), class: "btn-yellow small-btn right-button" %>
           <% end %>
         </div>
       </div>
@@ -35,14 +33,14 @@
 
       <div class="text-right">
         <% if current_user == @user %>
-          <% if policy(Hen).create? %>
+          <% if policy(Hen).new? %>
             <%= link_to "Add a new hen",  new_user_hen_path(current_user), class: "btn-yellow small-btn" %>
           <% end %>
         <% end %>
       </div>
 
       <div class="hen-cards">
-        <% if policy(Request).create? %>
+        <% if policy(Request).new? %>
           <% @hens.each do |hen| %>
           <!-- Hen card. -->
           <% hen.disponibility ? availability_filter = "" : availability_filter = "grey-filter"%>
@@ -69,7 +67,7 @@
                       <i class="fa fa-ban" aria-hidden="true"></i> Victime de son succès
                     </div>
                   <% end %>
-                  <% if current_user == @user %>
+                  <% if policy(hen).update? %>
                     <%= link_to edit_user_hen_path(@user, hen) do %>
                         <div class="text-right">
                           <i class="fa fa-arrow-right" aria-hidden="true"></i>Update <%= hen.name %>
